@@ -104,6 +104,10 @@ tiktok-live-score-tracker/
 ├── service-worker.js # Arquivo para PWA (opcional)
 └── README.md # Documentação do projeto
 ```
-## Exemplo de Uso - Configure a live no TikTok. - Adicione o nome da live ao arquivo `live-name.txt`. - Inicie o servidor e acesse a interface no navegador. - Monitore mensagens no chat e atribua pontos aos participantes para manter um ranking
+## Exemplo de Uso 
+- Configure a live no TikTok.
+- Adicione o nome da live ao arquivo `live-name.txt`.
+- Inicie o servidor e acesse a interface no navegador.
+- Monitore mensagens no chat e atribua pontos aos participantes para manter um ranking
 
 
