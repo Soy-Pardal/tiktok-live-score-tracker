@@ -56,12 +56,12 @@ A aplicação se conecta à live do TikTok, recebe mensagens do chat, permite ad
    ```bash
    git clone https://github.com/seu-usuario/tiktok-live-score-tracker.git
    ```
-  Entre no diretório do projeto:
+2. Entre no diretório do projeto:
 
   ```bash
   cd tiktok-live-score-tracker
   ```
-  Instale as dependências:
+3. Instale as dependências:
   ```bash
     npm install
   ```
