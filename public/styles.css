@@ -1,0 +1,296 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    --sb-track-color: #232E33;
+    --sb-thumb-color: #7d6baf;
+    --sb-size: 5px;
+  }
+
+
+  body::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 3px;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 3px;
+  }
+  
+  @supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color)
+                       var(--sb-track-color);
+    }
+  }
+
+
+  
+  .dashboard {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100vh;
+    gap: 10px;
+  }
+  
+  .user-list,
+  .rank-list,
+  .middle-list {
+    padding: 15px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .user-list,
+  .rank-list {
+    width: 30%;
+  }
+  
+  .middle-list {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .container-config,
+  .container-chat {
+    padding: 16px;
+    border-radius: 10px;
+  }
+  
+  .container-config {
+    background-color: rebeccapurple;
+    height: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .container-config button{
+    width: 45%;
+  }
+
+  .container-config input{
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .container-config .buttons{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  /* Botão de expansão na lista de usuários */
+.expand-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10; /* Para que fique acima do conteúdo da lista */
+}
+
+.expand-button:hover {
+  opacity: 0.8;
+}
+
+
+/* Estado expandido para a lista de usuários */
+.user-list.expanded {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: #1e1e1e;
+  overflow: auto; /* Permite rolagem na lista expandida */
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Ocultar listas do meio e de ranking no estado expandido */
+.dashboard.expanded .middle-list,
+.dashboard.expanded .rank-list {
+  display: none;
+}
+
+/* Ajustar layout do conteúdo dentro da lista expandida */
+.user-list.expanded ul {
+    max-height: calc(100vh - 60px); /* Espaço restante após o botão */
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Ajustes para os itens da lista expandida */
+.user-list.expanded li {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+  
+  .container-chat {
+    background-color: rgb(32, 13, 51);
+    height: 75%;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+  }
+
+  .container-config h2,
+  .container-chat h2 {
+    font-size: 14px;
+  }
+
+  
+  .message {
+    background-color: #97638f2f;
+    padding: 10px 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    line-height: 1.5;
+    font-size: 14px;
+  }
+  
+  .container-flex-collunm {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    overflow-y: auto; /* Adiciona barra de rolagem se necessário */
+    overflow-x: hidden; /* Evita rolagem horizontal */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2c2c2c;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 5px;
+  }
+  
+  button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  button.remove {
+    background-color: #e74c3c;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Classes de destaque para os 3 primeiros lugares */
+  .first-place {
+    background-color: gold;
+    color: black;
+  }
+  
+  .second-place {
+    background-color: silver;
+    color: black;
+  }
+  
+  .third-place {
+    background-color: #cd7f32;
+    color: black;
+  }
+  
+  /* Adiciona transição ao mudar a posição dos elementos */
+  .rank-list li {
+    position: relative; /* Necessário para animar o movimento */
+    transition: transform 0.3s ease; /* Animação para o deslocamento */
+  }
+  
+  /* Classe temporária para fade-in dos novos itens */
+  .slide-in {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  
+
+  .notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2ecc71;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    animation: fadeInOut 2s;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}

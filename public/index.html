@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overlay Dashboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="./manifest.json">
+</head>
+
+<body>
+    <div class="dashboard">
+        <!-- Lista de Usuários -->
+        <div id="user-list-container" class="user-list">
+            <button id="toggle-user-list" class="expand-button">Expandir</button>
+            <ul id="user-list">
+                <!-- A lista de usuários será renderizada aqui -->
+            </ul>
+        </div>
+
+        <!-- Lista do Meio (Configuração e Chat) -->
+        <div class="middle-list container-flex-collunm">
+            <div class="container-config container-flex-collunm">
+                <h2>Bem vindo(a)</h2>
+                <input type="text" placeholder="Nome da Live">
+                <div class="buttons">
+                    <button>Conectar</button>
+                    <button onclick="clearRank()">Resetar Rank</button>
+                </div>
+            </div>
+            <div class="container-chat container-flex-collunm">
+                <h2>Chat</h2>
+                <ul>
+                    <!-- Mensagens dinâmicas -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Lista de Ranking -->
+        <div class="rank-list">
+            <h2>Ranking de Pontos</h2>
+            <ul id="rank-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
