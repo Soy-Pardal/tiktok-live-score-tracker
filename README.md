@@ -72,7 +72,8 @@ Certifique-se de que o arquivo contém apenas o nome da sua live.
 
 ### 4. Executando o Servidor Inicie o servidor:
 
-```bash npm start
+```bash
+npm start
 ```
 
 O servidor será iniciado em `http://localhost:3000`.
